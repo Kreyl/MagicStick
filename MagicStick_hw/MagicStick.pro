@@ -1,4 +1,4 @@
-update=13.10.2018 11:12:23
+update=16.01.2019 23:03:10
 version=1
 last_client=kicad
 [cvpcb]
@@ -12,7 +12,7 @@ LibDir=
 [pcbnew]
 version=1
 PageLayoutDescrFile=
-LastNetListRead=
+LastNetListRead=MagicStick.net
 CopperLayerCount=2
 BoardThickness=1.6
 AllowMicroVias=0
@@ -54,7 +54,7 @@ OthersTextUpright=1
 SolderMaskClearance=0.09999999999999999
 SolderMaskMinWidth=0.18
 SolderPasteClearance=0
-SolderPasteRatio=-0
+SolderPasteRatio=0
 [pcbnew/Netclasses]
 [pcbnew/Netclasses/1]
 Name=Wide
