@@ -1,4 +1,4 @@
-update=16.01.2019 23:03:10
+update=18.01.2019 19:45:14
 version=1
 last_client=kicad
 [cvpcb]
@@ -13,14 +13,14 @@ LibDir=
 version=1
 PageLayoutDescrFile=
 LastNetListRead=MagicStick.net
-CopperLayerCount=2
+CopperLayerCount=4
 BoardThickness=1.6
 AllowMicroVias=0
 AllowBlindVias=0
 RequireCourtyardDefinitions=0
 ProhibitOverlappingCourtyards=1
 MinTrackWidth=0.125
-MinViaDiameter=0.4
+MinViaDiameter=0.7
 MinViaDrill=0.3
 MinMicroViaDiameter=0.2
 MinMicroViaDrill=0.09999999999999999
@@ -51,14 +51,14 @@ OthersTextSizeH=1
 OthersTextSizeThickness=0.15
 OthersTextItalic=0
 OthersTextUpright=1
-SolderMaskClearance=0.09999999999999999
-SolderMaskMinWidth=0.18
+SolderMaskClearance=0.06
+SolderMaskMinWidth=0.15
 SolderPasteClearance=0
-SolderPasteRatio=0
+SolderPasteRatio=-0
 [pcbnew/Netclasses]
 [pcbnew/Netclasses/1]
 Name=Wide
-Clearance=0.2
+Clearance=0.18
 TrackWidth=0.5
 ViaDiameter=0.7
 ViaDrill=0.3
