@@ -307,8 +307,8 @@ ENDDEF
 # Tittar_kl_D_Shottky
 #
 DEF Tittar_kl_D_Shottky D 0 40 N N 1 F N
-F0 "D" 0 100 40 H V C CNN
-F1 "Tittar_kl_D_Shottky" 0 -100 40 H V C CNN
+F0 "D" 0 100 50 H V C CNN
+F1 "Tittar_kl_D_Shottky" 0 -100 50 H V C CNN
 F2 "" -100 0 60 H I C CNN
 F3 "" 0 100 60 H I C CNN
 F4 "5" 100 200 60 H I C CNN "Price"
@@ -317,10 +317,10 @@ $FPLIST
  d*
 $ENDFPLIST
 DRAW
-P 3 0 1 0 -50 50 50 0 -50 -50 F
 P 5 0 1 6 25 -50 50 -50 50 50 75 50 75 50 N
-X ~ A -200 0 150 R 40 40 1 1 P
-X ~ C 200 0 150 L 40 40 1 1 P
+P 5 0 1 0 50 0 -50 -50 -50 50 50 0 -50 0 N
+X ~ A -150 0 100 R 40 40 1 1 P
+X ~ C 150 0 100 L 40 40 1 1 P
 ENDDRAW
 ENDDEF
 #
@@ -363,9 +363,9 @@ C 0 0 84 0 1 0 N
 P 2 0 1 0 50 50 50 -50 N
 P 2 0 1 0 100 -120 70 -110 N
 P 2 0 1 0 130 -90 100 -80 N
-P 3 0 1 0 -50 50 50 0 -50 -50 F
 P 4 0 1 0 50 -70 100 -120 90 -90 90 -90 N
 P 4 0 1 0 80 -40 130 -90 120 -60 120 -60 N
+P 5 0 1 0 50 0 -50 -50 -50 50 50 0 -50 0 N
 X A A -200 0 150 R 40 40 1 1 P
 X C C 200 0 150 L 40 40 1 1 P
 ENDDRAW
@@ -427,8 +427,8 @@ ENDDEF
 # Transistors_kl_NPN
 #
 DEF Transistors_kl_NPN Q 0 0 Y Y 1 F N
-F0 "Q" 200 50 60 H V C CNN
-F1 "Transistors_kl_NPN" 250 -50 60 H V C CNN
+F0 "Q" 200 50 50 H V C CNN
+F1 "Transistors_kl_NPN" 250 -50 50 H V C CNN
 F2 "" 100 -50 60 H I C CNN
 F3 "" 200 50 60 H I C CNN
 F4 "3" 300 150 60 H I C CNN "SolderPoints"
@@ -526,8 +526,8 @@ ENDDEF
 # pcb_details_MOTOR_NO_CONTACTS
 #
 DEF pcb_details_MOTOR_NO_CONTACTS M 0 40 Y Y 1 F N
-F0 "M" -500 550 60 H V C CNN
-F1 "pcb_details_MOTOR_NO_CONTACTS" -100 450 60 H V C CNN
+F0 "M" -500 550 50 H V C CNN
+F1 "pcb_details_MOTOR_NO_CONTACTS" -100 450 50 H V C CNN
 F2 "" -600 450 60 H I C CNN
 F3 "" -500 550 60 H I C CNN
 F4 "0" -400 650 60 H I C CNN "SolderPoints"
@@ -555,17 +555,17 @@ X ~ 1 0 0 50 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# power_+3.3V
+# power_+3v3
 #
-DEF power_+3.3V #PWR 0 0 Y Y 1 F P
+DEF power_+3v3 #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -40 30 H I C CNN
-F1 "power_+3.3V" 80 30 30 H V C CNN
+F1 "power_+3v3" 150 0 30 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 DRAW
 P 3 0 1 0 0 0 50 0 50 0 N
 P 6 0 1 0 50 0 30 10 90 0 30 -10 50 0 50 0 f
-X +3.3V 1 0 0 0 U 30 30 0 0 W N
+X +3v3 1 0 0 0 U 30 30 0 0 W N
 ENDDRAW
 ENDDEF
 #
