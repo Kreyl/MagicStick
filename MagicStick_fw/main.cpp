@@ -20,7 +20,7 @@ EvtMsgQ_t<EvtMsg_t, MAIN_EVT_Q_LEN> EvtQMain;
 static const UartParams_t CmdUartParams(115200, CMD_UART_PARAMS);
 CmdUart_t Uart{&CmdUartParams};
 static void ITask();
-//static void OnCmd(Shell_t *PShell);
+static void OnCmd(Shell_t *PShell);
 
 //static void ReadAndSetupMode();
 
@@ -85,9 +85,8 @@ int main(void) {
 //__noreturn
 void ITask() {
     while(true) {
-        chThdSleepMilliseconds(500);
-//        EvtMsg_t Msg = EvtQMain.Fetch(TIME_INFINITE);
-//        switch(Msg.ID) {
+        EvtMsg_t Msg = EvtQMain.Fetch(TIME_INFINITE);
+        switch(Msg.ID) {
 //            case evtIdEverySecond:
 //                TimeS++;
 //                ReadAndSetupMode();
@@ -107,13 +106,12 @@ void ITask() {
 //                break;
 //#endif
 
-
-//            case evtIdShellCmd:
-//                OnCmd((Shell_t*)Msg.Ptr);
-//                ((Shell_t*)Msg.Ptr)->SignalCmdProcessed();
-//                break;
-//            default: Printf("Unhandled Msg %u\r", Msg.ID); break;
-//        } // Switch
+            case evtIdShellCmd:
+                OnCmd((Shell_t*)Msg.Ptr);
+                ((Shell_t*)Msg.Ptr)->SignalCmdProcessed();
+                break;
+            default: Printf("Unhandled Msg %u\r", Msg.ID); break;
+        } // Switch
     } // while true
 } // ITask()
 
@@ -122,7 +120,7 @@ void ProcessCharging(PinSnsState_t *PState, uint32_t Len) {
 }
 
 
-#if 0 // ================= Command processing ====================
+#if 1 // ================= Command processing ====================
 void OnCmd(Shell_t *PShell) {
 	Cmd_t *PCmd = &PShell->Cmd;
     __attribute__((unused)) int32_t dw32 = 0;  // May be unused in some configurations
@@ -133,17 +131,17 @@ void OnCmd(Shell_t *PShell) {
     }
     else if(PCmd->NameIs("Version")) PShell->Print("%S %S\r", APP_NAME, XSTRINGIFY(BUILD_TIME));
 
-    else if(PCmd->NameIs("GetID")) PShell->Reply("ID", ID);
+//    else if(PCmd->NameIs("GetID")) PShell->Reply("ID", ID);
 
-    else if(PCmd->NameIs("SetID")) {
-        if(PCmd->GetNext<int32_t>(&ID) != retvOk) { PShell->Ack(retvCmdError); return; }
-        uint8_t r = ISetID(ID);
-        RMsg_t msg;
-        msg.Cmd = R_MSG_SET_CHNL;
-        msg.Value = ID2RCHNL(ID);
-        Radio.RMsgQ.SendNowOrExit(msg);
-        PShell->Ack(r);
-    }
+//    else if(PCmd->NameIs("SetID")) {
+//        if(PCmd->GetNext<int32_t>(&ID) != retvOk) { PShell->Ack(retvCmdError); return; }
+//        uint8_t r = ISetID(ID);
+//        RMsg_t msg;
+//        msg.Cmd = R_MSG_SET_CHNL;
+//        msg.Value = ID2RCHNL(ID);
+//        Radio.RMsgQ.SendNowOrExit(msg);
+//        PShell->Ack(r);
+//    }
 
 //    else if(PCmd->NameIs("Pill")) {
 //        if(PCmd->GetNextInt32(&dw32) != OK) { PShell->Ack(CMD_ERROR); return; }
