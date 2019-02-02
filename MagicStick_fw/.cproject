@@ -81,6 +81,7 @@
 									<listOptionValue builtIn="false" value="../os/include"/>
 									<listOptionValue builtIn="false" value="../os/stm32L433"/>
 									<listOptionValue builtIn="false" value="../kl_lib"/>
+									<listOptionValue builtIn="false" value="../Acg"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.endianess.1329551597" name="Endianess" superClass="com.atollic.truestudio.common_options.target.endianess" useByScannerDiscovery="false"/>
 								<option id="com.atollic.truestudio.common_options.target.mcpu.975846689" name="Microcontroller" superClass="com.atollic.truestudio.common_options.target.mcpu" useByScannerDiscovery="false" value="STM32L433CC" valueType="enumerated"/>
@@ -118,7 +119,7 @@
 					</folderInfo>
 					<fileInfo id="com.atollic.truestudio.exe.debug.2046682123.763829774" name="main.cpp" rcbsApplicability="disable" resourcePath="main.cpp" toolsToInvoke="com.atollic.truestudio.exe.debug.toolchain.gpp.1278203976.1834159833">
 						<tool id="com.atollic.truestudio.exe.debug.toolchain.gpp.1278203976.1834159833" name="C++ Compiler" superClass="com.atollic.truestudio.exe.debug.toolchain.gpp.1278203976">
-							<option id="com.atollic.truestudio.gpp.symbols.defined.1828371473" superClass="com.atollic.truestudio.gpp.symbols.defined" valueType="definedSymbols">
+							<option id="com.atollic.truestudio.gpp.symbols.defined.1828371473" name="Defined symbols" superClass="com.atollic.truestudio.gpp.symbols.defined" valueType="definedSymbols">
 								<listOptionValue builtIn="false" value="CORTEX_USE_FPU=TRUE"/>
 								<listOptionValue builtIn="false" value="&quot;BUILD_TIME=${current_date}&quot;"/>
 							</option>
@@ -210,6 +211,7 @@
 									<listOptionValue builtIn="false" value="../os/include"/>
 									<listOptionValue builtIn="false" value="../os/stm32L433"/>
 									<listOptionValue builtIn="false" value="../kl_lib"/>
+									<listOptionValue builtIn="false" value="../Acg"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.endianess.1845725048" name="Endianess" superClass="com.atollic.truestudio.common_options.target.endianess"/>
 								<option id="com.atollic.truestudio.common_options.target.mcpu.487479513" name="Microcontroller" superClass="com.atollic.truestudio.common_options.target.mcpu" value="STM32L433CC" valueType="enumerated"/>
@@ -241,7 +243,7 @@
 					</folderInfo>
 					<fileInfo id="com.atollic.truestudio.configuration.release.543367137.493599746" name="main.cpp" rcbsApplicability="disable" resourcePath="main.cpp" toolsToInvoke="com.atollic.truestudio.exe.release.toolchain.gpp.522652045.134174625">
 						<tool id="com.atollic.truestudio.exe.release.toolchain.gpp.522652045.134174625" name="C++ Compiler" superClass="com.atollic.truestudio.exe.release.toolchain.gpp.522652045">
-							<option id="com.atollic.truestudio.gpp.symbols.defined.616266037" superClass="com.atollic.truestudio.gpp.symbols.defined" valueType="definedSymbols">
+							<option id="com.atollic.truestudio.gpp.symbols.defined.616266037" name="Defined symbols" superClass="com.atollic.truestudio.gpp.symbols.defined" valueType="definedSymbols">
 								<listOptionValue builtIn="false" value="CORTEX_USE_FPU=TRUE"/>
 								<listOptionValue builtIn="false" value="&quot;BUILD_TIME=${current_date}&quot;"/>
 							</option>

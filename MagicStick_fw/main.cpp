@@ -9,6 +9,7 @@
 //#include "kl_i2c.h"
 #include "kl_lib.h"
 #include "MsgQ.h"
+#include "acg_lsm6ds3.h"
 //#include "main.h"
 //#include "SimpleSensors.h"
 //#include "buttons.h"
@@ -42,6 +43,7 @@ static void OnCmd(Shell_t *PShell);
 
 int main(void) {
     // ==== Init Vcore & clock system ====
+    Clk.SetCoreClk(cclk16MHz);
     Clk.UpdateFreqValues();
 
     // === Init OS ===
@@ -51,16 +53,10 @@ int main(void) {
 
     // ==== Init hardware ====
     Uart.Init();
-//    ReadIDfromEE();
-//    Printf("\r%S %S; ID=%u\r", APP_NAME, XSTRINGIFY(BUILD_TIME), ID);
     Printf("\r%S %S\r", APP_NAME, XSTRINGIFY(BUILD_TIME));
-//    Uart.Printf("ID: %X %X %X\r", GetUniqID1(), GetUniqID2(), GetUniqID3());
-//    if(Sleep::WasInStandby()) {
-//        Uart.Printf("WasStandby\r");
-//        Sleep::ClearStandbyFlag();
-//    }
     Clk.PrintFreqs();
-//    RandomSeed(GetUniqID3());   // Init random algorythm with uniq ID
+
+    Acg.Init();
 
 //    Led.Init();
 //    Led.SetupSeqEndEvt(chThdGetSelfX(), EVT_LED_SEQ_END);
@@ -82,7 +78,7 @@ int main(void) {
     ITask();
 }
 
-//__noreturn
+__noreturn
 void ITask() {
     while(true) {
         EvtMsg_t Msg = EvtQMain.Fetch(TIME_INFINITE);
