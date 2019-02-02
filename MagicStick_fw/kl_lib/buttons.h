@@ -27,7 +27,7 @@
  */
 
 // ================================= Settings ==================================
-#define BUTTONS_CNT                 3
+#define BUTTONS_CNT                 1
 // Select required events etc.
 #define BTN_SHORTPRESS              TRUE    // beShortPress evt
 #define BTN_RELEASE                 FALSE

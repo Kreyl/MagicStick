@@ -3,7 +3,7 @@
 #include "hal.h"
 #include "uart.h"
 #include "led.h"
-//#include "vibro.h"
+#include "vibro.h"
 #include "Sequences.h"
 #include "radio_lvl1.h"
 //#include "kl_i2c.h"
@@ -11,8 +11,8 @@
 #include "MsgQ.h"
 #include "acg_lsm6ds3.h"
 //#include "main.h"
-//#include "SimpleSensors.h"
-//#include "buttons.h"
+#include "SimpleSensors.h"
+#include "buttons.h"
 
 #if 1 // ======================== Variables and defines ========================
 // Forever
@@ -31,7 +31,7 @@ static void OnCmd(Shell_t *PShell);
 //void ReadIDfromEE();
 
 // ==== Periphery ====
-//Vibro_t Vibro {VIBRO_SETUP};
+Vibro_t Vibro {VIBRO_CTRL};
 LedRGB_t Led { LED_R_PIN, LED_G_PIN, LED_B_PIN };
 LedSmooth_t Lumos { LUMOS_CTRL, 1800 };
 
@@ -63,12 +63,9 @@ int main(void) {
 //    Lumos.StartOrRestart(lsqLStart);
 //    Led.StartOrRestart(lsqStart);
 
-    Printf("t16psc: %u\r", TIM16->PSC);
-
-
-//    Vibro.Init();
+    Vibro.Init();
 //    Vibro.StartOrRestart(vsqBrrBrr);
-//    SimpleSensors::Init();
+    SimpleSensors::Init();
 //    Adc.Init();
 
 
@@ -97,19 +94,9 @@ void ITask() {
 //                ReadAndSetupMode();
 //                break;
 
-//#if BUTTONS_ENABLED
-//            case evtIdButtons:
-//                Printf("Btn %u\r", Msg.BtnEvtInfo.BtnID);
-//                if(Msg.BtnEvtInfo.BtnID == 0) AppState = appstIdle;
-//                else if(Msg.BtnEvtInfo.BtnID == 1) AppState = appstTx1;
-//                else if(Msg.BtnEvtInfo.BtnID == 2) AppState = appstTx2;
-//                switch(AppState) {
-//                    case appstIdle: Led.StartOrContinue(lsqIdle); break;
-//                    case appstTx1:  Led.StartOrContinue(lsqTx1); break;
-//                    case appstTx2:  Led.StartOrContinue(lsqTx2); break;
-//                }
-//                break;
-//#endif
+            case evtIdButtons:
+                Printf("Btn %u\r", Msg.BtnEvtInfo.Type);
+                break;
 
             case evtIdShellCmd:
                 OnCmd((Shell_t*)Msg.Ptr);

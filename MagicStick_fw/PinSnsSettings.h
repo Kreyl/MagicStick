@@ -28,7 +28,7 @@ extern void ProcessCharging(PinSnsState_t *PState, uint32_t Len);
 
 const PinSns_t PinSns[] = {
         // Buttons
-        {BTN1_PIN, pudNone,   ProcessButtons},
+        {BTN1_PIN, pudPullDown, ProcessButtons},
         // USB
 //        {USB_DETECT_PIN, pudPullDown, ProcessUsbDetect},
         // Charging
