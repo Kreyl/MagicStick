@@ -2,3 +2,5 @@
 MagicStick_hw/MagicStick.kicad_pcb-bak
 *.ses
 *.dsn
+*.prefs
+*.xml
