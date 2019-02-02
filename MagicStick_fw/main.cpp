@@ -2,10 +2,10 @@
 #include "ch.h"
 #include "hal.h"
 #include "uart.h"
-//#include "led.h"
+#include "led.h"
 //#include "vibro.h"
-//#include "Sequences.h"
-//#include "radio_lvl1.h"
+#include "Sequences.h"
+#include "radio_lvl1.h"
 //#include "kl_i2c.h"
 #include "kl_lib.h"
 #include "MsgQ.h"
@@ -13,7 +13,6 @@
 //#include "main.h"
 //#include "SimpleSensors.h"
 //#include "buttons.h"
-
 
 #if 1 // ======================== Variables and defines ========================
 // Forever
@@ -33,7 +32,8 @@ static void OnCmd(Shell_t *PShell);
 
 // ==== Periphery ====
 //Vibro_t Vibro {VIBRO_SETUP};
-//LedRGBwPower_t Led { LED_R_PIN, LED_G_PIN, LED_B_PIN, LED_EN_PIN };
+LedRGB_t Led { LED_R_PIN, LED_G_PIN, LED_B_PIN };
+LedSmooth_t Lumos { LUMOS_CTRL, 1800 };
 
 // ==== Timers ====
 //static TmrKL_t TmrEverySecond {MS2ST(1000), evtIdEverySecond, tktPeriodic};
@@ -56,21 +56,30 @@ int main(void) {
     Printf("\r%S %S\r", APP_NAME, XSTRINGIFY(BUILD_TIME));
     Clk.PrintFreqs();
 
-    Acg.Init();
+//    Acg.Init();
 
-//    Led.Init();
-//    Led.SetupSeqEndEvt(chThdGetSelfX(), EVT_LED_SEQ_END);
+    Led.Init();
+    Lumos.Init();
+//    Lumos.StartOrRestart(lsqLStart);
+//    Led.StartOrRestart(lsqStart);
+
+    Printf("t16psc: %u\r", TIM16->PSC);
+
+
 //    Vibro.Init();
 //    Vibro.StartOrRestart(vsqBrrBrr);
 //    SimpleSensors::Init();
 //    Adc.Init();
+
 
     // ==== Time and timers ====
 //    TmrEverySecond.StartOrRestart();
 //    TmrRxTableCheck.StartOrRestart();
 
     // ==== Radio ====
-//    if(Radio.Init() == retvOk) Led.StartOrRestart(lsqStart);
+//    if(
+//    Radio.Init();
+    //== retvOk) Led.StartOrRestart(lsqStart);
 //    else Led.StartOrRestart(lsqFailure);
 //    chThdSleepMilliseconds(1008);
 
@@ -126,6 +135,12 @@ void OnCmd(Shell_t *PShell) {
         PShell->Ack(retvOk);
     }
     else if(PCmd->NameIs("Version")) PShell->Print("%S %S\r", APP_NAME, XSTRINGIFY(BUILD_TIME));
+
+    else if(PCmd->NameIs("lum")) {
+        uint8_t Brt;
+        if(PCmd->GetNext<uint8_t>(&Brt) != retvOk) { PShell->Ack(retvCmdError); return; }
+        Lumos.SetBrightness(Brt);
+    }
 
 //    else if(PCmd->NameIs("GetID")) PShell->Reply("ID", ID);
 

@@ -48,9 +48,9 @@
 
 // Light
 #define LUMOS_CTRL      { GPIOA, 6, TIM16, 1, invNotInverted, omPushPull, 255 }
-#define LED_R_PIN       { GPIOA, 8, TIM1, 1, invNotInverted, omPushPull, 255 }
-#define LED_G_PIN       { GPIOA, 9, TIM1, 2, invNotInverted, omPushPull, 255 }
-#define LED_B_PIN       { GPIOA, 10, TIM1, 3, invNotInverted, omPushPull, 255 }
+#define LED_B_PIN       { GPIOA, 8, TIM1, 1, invNotInverted, omPushPull, 255 }
+#define LED_R_PIN       { GPIOA, 9, TIM1, 2, invNotInverted, omPushPull, 255 }
+#define LED_G_PIN       { GPIOA, 10, TIM1, 3, invNotInverted, omPushPull, 255 }
 
 // USB
 #define USB_DM          GPIOA, 11
@@ -59,9 +59,7 @@
 #define USB_DETECT_PIN  GPIOA, 7
 
 // Radio: SPI, PGpio, Sck, Miso, Mosi, Cs, Gdo0
-#define CC_Setup0       SPI1, GPIOB, 3,4,5
-#define CC_CS           GPIOA, 15
-#define CC_GDO0         GPIOB, 0
+#define CC_Setup0       SPI1, GPIOB, 3,4,5, GPIOA,15, GPIOB,0
 
 // UART
 #define UART_GPIO       GPIOB

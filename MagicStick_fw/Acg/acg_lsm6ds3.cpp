@@ -10,6 +10,8 @@
 #include "shell.h"
 #include "acg_lsm6ds3_defins.h"
 
+#include "radio_lvl1.h"
+
 #define LOG_TO_FILE             FALSE
 
 #define READ_FROM_FILE          FALSE// TRUE
@@ -54,7 +56,9 @@ void Acg_t::Task() {
         chThdSuspendS(&ThdRef); // Wait IRQ
         chSysUnlock();
 
-        AccSpd.Print();
+//        AccSpd.Print();
+        Radio.SendData(AccSpd.g[0], AccSpd.g[1], AccSpd.g[2], AccSpd.a[0], AccSpd.a[1], AccSpd.a[2]);
+
         // Detect motion
 //        SaberMotn.Update(AccSpd.a, AccSpd.g);
     }
