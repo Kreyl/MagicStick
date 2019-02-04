@@ -1,1 +1,2 @@
-- Add USB_DETECT (say, GPIOA7)
++ Add USB_DETECT (say, GPIOA7)
++ Add holes for screws

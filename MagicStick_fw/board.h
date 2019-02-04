@@ -82,7 +82,7 @@
 // I2C Alternate Function
 #define I2C_AF          AF4
 
-#define EE_PWR_PIN      GPIOB, 10
+#define EE_PWR_PIN      GPIOB, 10, omPushPull
 
 #endif // GPIO
 
@@ -120,8 +120,8 @@
 #define ACG_DMA_CHNL    1
 
 // ==== I2C ====
-#define I2C1_DMA_TX     STM32_DMA1_STREAM6
-#define I2C1_DMA_RX     STM32_DMA1_STREAM7
+#define I2C1_DMA_TX     STM32_DMA_STREAM_ID(1, 6)
+#define I2C1_DMA_RX     STM32_DMA_STREAM_ID(1, 7)
 #define I2C1_DMA_CHNL   3
 
 #if ADC_REQUIRED

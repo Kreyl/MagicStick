@@ -6,7 +6,7 @@
 #include "vibro.h"
 #include "Sequences.h"
 #include "radio_lvl1.h"
-//#include "kl_i2c.h"
+#include "kl_i2c.h"
 #include "kl_lib.h"
 #include "MsgQ.h"
 #include "acg_lsm6ds3.h"
@@ -34,6 +34,7 @@ static void OnCmd(Shell_t *PShell);
 Vibro_t Vibro {VIBRO_CTRL};
 LedRGB_t Led { LED_R_PIN, LED_G_PIN, LED_B_PIN };
 LedSmooth_t Lumos { LUMOS_CTRL, 1800 };
+PinOutput_t EePwr {EE_PWR_PIN};
 
 // ==== Timers ====
 //static TmrKL_t TmrEverySecond {MS2ST(1000), evtIdEverySecond, tktPeriodic};
@@ -56,12 +57,17 @@ int main(void) {
     Printf("\r%S %S\r", APP_NAME, XSTRINGIFY(BUILD_TIME));
     Clk.PrintFreqs();
 
-//    Acg.Init();
+    Acg.Init();
+
+//    i2c1.Init();
+//    EePwr.Init();
+//    EePwr.SetHi();
+//    i2c1.ScanBus();
 
     Led.Init();
     Lumos.Init();
 //    Lumos.StartOrRestart(lsqLStart);
-//    Led.StartOrRestart(lsqStart);
+    Led.StartOrRestart(lsqStart);
 
     Vibro.Init();
 //    Vibro.StartOrRestart(vsqBrrBrr);
@@ -75,7 +81,7 @@ int main(void) {
 
     // ==== Radio ====
 //    if(
-//    Radio.Init();
+    Radio.Init();
     //== retvOk) Led.StartOrRestart(lsqStart);
 //    else Led.StartOrRestart(lsqFailure);
 //    chThdSleepMilliseconds(1008);
@@ -110,7 +116,6 @@ void ITask() {
 void ProcessCharging(PinSnsState_t *PState, uint32_t Len) {
 
 }
-
 
 #if 1 // ================= Command processing ====================
 void OnCmd(Shell_t *PShell) {
