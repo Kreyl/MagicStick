@@ -57,7 +57,7 @@ void Acg_t::Task() {
         chSysUnlock();
 
 //        AccSpd.Print();
-        Radio.SendData(AccSpd.g[0], AccSpd.g[1], AccSpd.g[2], AccSpd.a[0], AccSpd.a[1], AccSpd.a[2]);
+//        Radio.SendData(AccSpd.g[0], AccSpd.g[1], AccSpd.g[2], AccSpd.a[0], AccSpd.a[1], AccSpd.a[2]);
 
         // Detect motion
 //        SaberMotn.Update(AccSpd.a, AccSpd.g);

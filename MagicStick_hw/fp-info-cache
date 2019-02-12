@@ -1,4 +1,4 @@
-618597316452525
+607525342125078
 Antennas
 ANT_868_10d4x36
 PCB 75.7x37.5, AntPcb 14.8mm
@@ -153,13 +153,13 @@ Locket5
 0
 2
 2
-Antennas
-MagicStick
+BGA
+BGA-294_21x14_12.0x7.5mm
 
 
 0
-1
-1
+167
+167
 BtnsSwitches
 BTN_4PIN_12mm
 
@@ -293,13 +293,6 @@ SW_LKLS7SS12F19G5
 0
 3
 3
-BtnsSwitches
-SW_PUSH_6mm
-https://www.omron.com/ecb/products/pdf/en-b3f.pdf
-tact sw push 6mm
-0
-4
-2
 BtnsSwitches
 SW_SK12D07VG
 
@@ -588,47 +581,12 @@ FFC_0d5x8
 10
 9
 Connectors
-FFC_0d5x40_flip
-
-
-0
-42
-41
-Connectors
 Hole_2d2x1d1
 
 
 0
 1
 1
-Connectors
-IDC-Header_2x8_P2.54mm_Vertical
-Through hole straight IDC box header, 2x15, 2.54mm pitch, double rows
-Through hole IDC box header THT 2x15 2.54mm double row
-0
-16
-16
-Connectors
-IDC-Header_2x15_P2.54mm_Vertical
-Through hole straight IDC box header, 2x15, 2.54mm pitch, double rows
-Through hole IDC box header THT 2x15 2.54mm double row
-0
-30
-30
-Connectors
-IDC-Header_2x17_P2.54mm_Vertical
-Through hole straight IDC box header, 2x17, 2.54mm pitch, double rows
-Through hole IDC box header THT 2x17 2.54mm double row
-0
-34
-34
-Connectors
-IDC-Header_2x20_P2.54mm_Vertical
-Through hole straight IDC box header, 2x20, 2.54mm pitch, double rows
-Through hole IDC box header THT 2x20 2.54mm double row
-0
-40
-40
 Connectors
 MINIFIT2x1_S_VERT
 
@@ -910,12 +868,12 @@ PWL2-02
 2
 2
 Connectors
-RJ11_TJ3-4P4C
-
+RF_SMA_L
+RF SMA connector
 
 0
-4
-4
+5
+2
 Connectors
 RJ11_TJ6_6P6C
 
@@ -923,20 +881,6 @@ RJ11_TJ6_6P6C
 0
 8
 7
-Connectors
-RJ12_TJ3-6P6C
-
-
-0
-6
-6
-Connectors
-RJ45_TJ3-8P8C
-
-
-0
-8
-8
 Connectors
 SIL1_ROUND_1MM8
 Connecteurs 2 pins
@@ -1070,13 +1014,6 @@ USB_AM_PCB
 0
 4
 4
-Connectors
-USB_A_Fx2
-
-
-0
-10
-10
 Connectors
 USB_B
 USB conn type B: USBB-1J
@@ -1245,13 +1182,13 @@ SOD323
 0
 2
 2
-Diodes
-SOD923
+Display
+Round2_2
 
 
 0
-2
-2
+30
+30
 Inductors
 13x13
 
@@ -1477,20 +1414,6 @@ EEMB603030
 2
 2
 Installation
-ENCODER_EC110402M2F
-
-
-0
-11
-6
-Installation
-Keystone_1042_1x18650
-Battery holder for 18650 cylindrical cells http://www.keyelco.com/product.cfm/product_id/918
-18650 Keystone 1042 Li-ion
-0
-2
-2
-Installation
 MICROSD_CAP_FIX05A
 
 
@@ -1540,20 +1463,6 @@ RUEF600
 2
 2
 LEDs
-Cree_J3030
-
-
-0
-2
-2
-LEDs
-EpistarRGB
-
-
-0
-7
-7
-LEDs
 LED5mmR
 
 
@@ -1602,13 +1511,6 @@ LED_5050
 0
 6
 6
-LEDs
-LED_D5.0mm
-LED, diameter 5.0mm, 2 pins, http://cdn-reichelt.de/documents/datenblatt/A500/LL-504BC2E-009.pdf
-LED diameter 5.0mm 2 pins
-0
-2
-2
 LEDs
 LED_Diamond_Dragon
 
@@ -1756,6 +1658,13 @@ TQFP-32_7x7_Pitch0.8mm
 0
 32
 32
+Microphones
+CMM4030
+
+
+0
+6
+5
 Modules
 BT_HC0x
 
@@ -1863,13 +1772,6 @@ Hole3d3_out5d5mm
 1
 PCB
 Hole3_5_out6mm
-
-
-0
-1
-1
-PCB
-Hole5d1_out11mm
 
 
 0
@@ -2268,13 +2170,6 @@ MLP08
 9
 8
 QFN_DFN
-mrQFN76
-
-
-0
-74
-41
-QFN_DFN
 PQFN6_2x2
 
 
@@ -2288,13 +2183,6 @@ Sz 8x8, Pitch 0.8
 0
 57
 33
-QFN_DFN
-QFN-20_EP_3x3_Pitch0.4mm
-
-
-0
-24
-21
 QFN_DFN
 QFN-28_EP_6x6_Pitch0.65mm
 

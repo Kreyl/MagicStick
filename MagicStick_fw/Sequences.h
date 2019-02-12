@@ -39,6 +39,13 @@ const LedRGBChunk_t lsqStart[] = {
         {csEnd},
 };
 
+const LedRGBChunk_t lsqRx[] = {
+        {csSetup, 0, {0,0,1}},
+        {csWait, 27},
+        {csSetup, 0, {0,1,0}},
+        {csEnd},
+};
+
 const LedRGBChunk_t lsqFailure[] = {
         {csSetup, 0, clRed},
         {csWait, 99},
