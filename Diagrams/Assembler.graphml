@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:java="http://www.yworks.com/xml/yfiles-common/1.0/java" xmlns:sys="http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
+  <!--Created by yEd 3.18.2-->
+  <key attr.name="Description" attr.type="string" for="graph" id="d0"/>
+  <key for="port" id="d1" yfiles.type="portgraphics"/>
+  <key for="port" id="d2" yfiles.type="portgeometry"/>
+  <key for="port" id="d3" yfiles.type="portuserdata"/>
+  <key attr.name="url" attr.type="string" for="node" id="d4"/>
+  <key attr.name="description" attr.type="string" for="node" id="d5"/>
+  <key for="node" id="d6" yfiles.type="nodegraphics"/>
+  <key for="graphml" id="d7" yfiles.type="resources"/>
+  <key attr.name="url" attr.type="string" for="edge" id="d8"/>
+  <key attr.name="description" attr.type="string" for="edge" id="d9"/>
+  <key for="edge" id="d10" yfiles.type="edgegraphics"/>
+  <graph edgedefault="directed" id="G">
+    <data key="d0"/>
+    <node id="n0" yfiles.foldertype="folder">
+      <data key="d4" xml:space="preserve"/>
+      <data key="d6">
+        <y:ProxyAutoBoundsNode>
+          <y:Realizers active="1">
+            <y:GroupNode>
+              <y:Geometry height="424.3701171875" width="952.8525390625" x="259.6630859375" y="84.12353515625"/>
+              <y:Fill color="#F5F5F5" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="16" fontStyle="bold" hasLineColor="false" height="23.6015625" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="952.8525390625" x="0.0" xml:space="preserve" y="0.0">parent</y:NodeLabel>
+              <y:NodeLabel alignment="left" autoSizePolicy="node_size" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="424.3701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="952.8525390625" x="4.0" xml:space="preserve" y="53.95591121926145">entry/ <y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="-0.5" labelRatioY="-0.5" nodeRatioX="-0.5" nodeRatioY="-0.37285647826276597" offsetX="4.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+              <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
+              <y:NodeBounds considerNodeLabelSize="true"/>
+              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
+              <y:BorderInsets bottom="106" bottomF="105.99365234375" left="28" leftF="28.4970703125" right="140" rightF="139.67578125" top="104" topF="103.77490234375"/>
+            </y:GroupNode>
+            <y:GroupNode>
+              <y:Geometry height="50.0" width="82.0" x="259.6630859375" y="84.12353515625"/>
+              <y:Fill color="#F5F5F5" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="22.37646484375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="82.0" x="0.0" xml:space="preserve" y="0.0">get_shot</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+              <y:State closed="true" closedHeight="50.0" closedWidth="82.0" innerGraphDisplayEnabled="false"/>
+              <y:NodeBounds considerNodeLabelSize="true"/>
+              <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
+              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+            </y:GroupNode>
+          </y:Realizers>
+        </y:ProxyAutoBoundsNode>
+      </data>
+      <graph edgedefault="directed" id="n0:">
+        <node id="n0::n0">
+          <data key="d4" xml:space="preserve"/>
+          <data key="d6">
+            <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
+              <y:Geometry height="139.5" width="164.6796875" x="261.16015625" y="226.5"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="164.6796875" x="0.0" xml:space="preserve" y="4.0">idle</y:NodeLabel>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Consolas" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="40.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="43.5859375" x="4.0" xml:space="preserve" y="4.0">
+
+entry/</y:NodeLabel>
+              <y:StyleProperties>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+                <y:Property class="java.lang.Boolean" name="doubleBorder" value="false"/>
+              </y:StyleProperties>
+            </y:GenericNode>
+          </data>
+        </node>
+        <node id="n0::n1">
+          <data key="d4" xml:space="preserve"/>
+          <data key="d6">
+            <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
+              <y:Geometry height="232.0" width="232.6796875" x="543.16015625" y="226.5"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="232.6796875" x="0.0" xml:space="preserve" y="4.0">assembling</y:NodeLabel>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Consolas" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="196.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="175.5390625" x="4.0" xml:space="preserve" y="4.0">
+
+entry/
+    vibroforce = 0;
+    move_timer = 0;
+
+TIME_TICK_100MS[else]/
+    move_timer++;
+
+PROPER_MOVE/
+     move_timer = 0;
+     increase vibro force
+     return data to wand:
+         RightMove(true),
+         VibroForce,
+         SpellEnded(false)</y:NodeLabel>
+              <y:StyleProperties>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+                <y:Property class="java.lang.Boolean" name="doubleBorder" value="false"/>
+              </y:StyleProperties>
+            </y:GenericNode>
+          </data>
+        </node>
+        <node id="n0::n2">
+          <data key="d4" xml:space="preserve"/>
+          <data key="d6">
+            <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
+              <y:Geometry height="139.5" width="164.6796875" x="893.16015625" y="226.5"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="164.6796875" x="0.0" xml:space="preserve" y="4.0">dead end</y:NodeLabel>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Consolas" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="52.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="129.35546875" x="4.0" xml:space="preserve" y="4.0">
+
+entry/
+    some indication</y:NodeLabel>
+              <y:StyleProperties>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+                <y:Property class="java.lang.Boolean" name="doubleBorder" value="false"/>
+              </y:StyleProperties>
+            </y:GenericNode>
+          </data>
+        </node>
+        <node id="n0::n3">
+          <data key="d4" xml:space="preserve"/>
+          <data key="d6">
+            <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
+              <y:Geometry height="118.0" width="200.0" x="575.83984375" y="530.0"/>
+              <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
+              <y:BorderStyle color="#000000" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="node_width" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="200.0" x="0.0" xml:space="preserve" y="4.0">spell_done</y:NodeLabel>
+              <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Consolas" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="124.0" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="162.34375" x="4.0" xml:space="preserve" y="4.0">
+
+entry/
+    return data to wand:
+        SpellId
+    spell_timer = 0;
+
+TIME_TICK_100MS[else]/
+    spell_timer++
+    </y:NodeLabel>
+              <y:StyleProperties>
+                <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
+                <y:Property class="java.lang.Boolean" name="doubleBorder" value="false"/>
+              </y:StyleProperties>
+            </y:GenericNode>
+          </data>
+        </node>
+        <edge id="n0::e0" source="n0::n0" target="n0::n1">
+          <data key="d10">
+            <y:GenericEdge configuration="com.yworks.bpmn.Connection">
+              <y:Path sx="0.0" sy="0.0" tx="3.0" ty="-46.25"/>
+              <y:LineStyle color="#000000" type="line" width="1.0"/>
+              <y:Arrows source="none" target="standard"/>
+              <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Consolas" fontSize="12" fontStyle="plain" hasLineColor="false" height="16.0" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="83.171875" x="15.0550537109375" xml:space="preserve" y="-10.25">CAST_STARTED<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+              <y:StyleProperties>
+                <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="CONNECTION_TYPE_MESSAGE_FLOW"/>
+              </y:StyleProperties>
+            </y:GenericEdge>
+          </data>
+        </edge>
+        <edge id="n0::e1" source="n0::n1" target="n0::n2">
+          <data key="d10">
+            <y:GenericEdge configuration="com.yworks.bpmn.Connection">
+              <y:Path sx="-5.0" sy="-35.5" tx="0.0" ty="0.0">
+                <y:Point x="793.5" y="307.0"/>
+              </y:Path>
+              <y:LineStyle color="#000000" type="line" width="1.0"/>
+              <y:Arrows source="none" target="standard"/>
+              <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Consolas" fontSize="12" fontStyle="plain" hasLineColor="false" height="16.0" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="69.9765625" x="13.187347761883757" xml:space="preserve" y="-9.274400068345926">WRONG_MOVE<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+              <y:StyleProperties>
+                <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="CONNECTION_TYPE_MESSAGE_FLOW"/>
+              </y:StyleProperties>
+            </y:GenericEdge>
+          </data>
+        </edge>
+        <edge id="n0::e2" source="n0::n1" target="n0::n0">
+          <data key="d10">
+            <y:GenericEdge configuration="com.yworks.bpmn.Connection">
+              <y:Path sx="-42.5" sy="97.5" tx="0.0" ty="0.0">
+                <y:Point x="343.5" y="440.0"/>
+              </y:Path>
+              <y:LineStyle color="#000000" type="line" width="1.0"/>
+              <y:Arrows source="none" target="standard"/>
+              <y:EdgeLabel alignment="left" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Consolas" fontSize="12" fontStyle="plain" hasLineColor="false" height="40.0" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="175.5390625" x="-221.45257568359375" xml:space="preserve" y="-27.000000000000114">CAST_ENDED/
+      return data to wand:
+      SpellID (FAILED)<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+              <y:StyleProperties>
+                <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="CONNECTION_TYPE_MESSAGE_FLOW"/>
+              </y:StyleProperties>
+            </y:GenericEdge>
+          </data>
+        </edge>
+        <edge id="n0::e3" source="n0::n1" target="n0::n2">
+          <data key="d10">
+            <y:GenericEdge configuration="com.yworks.bpmn.Connection">
+              <y:Path sx="43.96825982653627" sy="97.5" tx="0.0" ty="0.0">
+                <y:Point x="975.5" y="440.0"/>
+              </y:Path>
+              <y:LineStyle color="#000000" type="line" width="1.0"/>
+              <y:Arrows source="none" target="standard"/>
+              <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Consolas" fontSize="12" fontStyle="plain" hasLineColor="false" height="16.0" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="294.296875" x="56.5252685546875" xml:space="preserve" y="-29.0">TIME_TICK_100MS [move_timer &gt;= MOVE_TIMEOUT]<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+              <y:StyleProperties>
+                <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="CONNECTION_TYPE_MESSAGE_FLOW"/>
+              </y:StyleProperties>
+            </y:GenericEdge>
+          </data>
+        </edge>
+        <edge id="n0::e4" source="n0::n2" target="n0::n0">
+          <data key="d10">
+            <y:GenericEdge configuration="com.yworks.bpmn.Connection">
+              <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+                <y:Point x="975.5" y="165.0"/>
+                <y:Point x="343.5" y="165.0"/>
+              </y:Path>
+              <y:LineStyle color="#000000" type="line" width="1.0"/>
+              <y:Arrows source="none" target="standard"/>
+              <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Consolas" fontSize="12" fontStyle="plain" hasLineColor="false" height="16.0" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="69.9765625" x="-272.98828125" xml:space="preserve" y="-69.4913940429687">CAST_ENDED<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+              <y:StyleProperties>
+                <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="CONNECTION_TYPE_MESSAGE_FLOW"/>
+              </y:StyleProperties>
+            </y:GenericEdge>
+          </data>
+        </edge>
+        <edge id="n0::e5" source="n0::n2" target="n0::n0">
+          <data key="d10">
+            <y:GenericEdge configuration="com.yworks.bpmn.Connection">
+              <y:Path sx="-47.0" sy="1.732919254658385" tx="41.0" ty="27.75">
+                <y:Point x="928.5" y="196.0"/>
+                <y:Point x="384.5" y="196.0"/>
+              </y:Path>
+              <y:LineStyle color="#000000" type="line" width="1.0"/>
+              <y:Arrows source="none" target="standard"/>
+              <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Consolas" fontSize="12" fontStyle="plain" hasLineColor="false" height="16.0" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="30.390625" x="-300.1953125" xml:space="preserve" y="-53.54224248850565">STOP<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+              <y:StyleProperties>
+                <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="CONNECTION_TYPE_MESSAGE_FLOW"/>
+              </y:StyleProperties>
+            </y:GenericEdge>
+          </data>
+        </edge>
+        <edge id="n0::e6" source="n0::n1" target="n0::n0">
+          <data key="d10">
+            <y:GenericEdge configuration="com.yworks.bpmn.Connection">
+              <y:Path sx="-24.0" sy="2.8819875776397503" tx="-42.0" ty="0.0">
+                <y:Point x="635.5" y="505.0"/>
+                <y:Point x="627.5" y="510.0"/>
+                <y:Point x="326.5" y="510.0"/>
+                <y:Point x="306.5" y="510.0"/>
+                <y:Point x="301.5" y="510.0"/>
+                <y:Point x="301.5" y="455.25"/>
+              </y:Path>
+              <y:LineStyle color="#000000" type="line" width="1.0"/>
+              <y:Arrows source="none" target="standard"/>
+              <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Consolas" fontSize="12" fontStyle="plain" hasLineColor="false" height="16.0" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="30.390625" x="-220.1953125" xml:space="preserve" y="42.49029541015625">STOP<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+              <y:StyleProperties>
+                <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="CONNECTION_TYPE_MESSAGE_FLOW"/>
+              </y:StyleProperties>
+            </y:GenericEdge>
+          </data>
+        </edge>
+        <edge id="n0::e7" source="n0::n1" target="n0::n3">
+          <data key="d10">
+            <y:GenericEdge configuration="com.yworks.bpmn.Connection">
+              <y:Path sx="16.33984375" sy="-1.4409937888198752" tx="0.0" ty="0.0"/>
+              <y:LineStyle color="#000000" type="line" width="1.0"/>
+              <y:Arrows source="none" target="standard"/>
+              <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Consolas" fontSize="12" fontStyle="plain" hasLineColor="false" height="16.0" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="63.37890625" x="-28.029296875" xml:space="preserve" y="28.47772216796875">LAST_MOVE<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+              <y:StyleProperties>
+                <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="CONNECTION_TYPE_MESSAGE_FLOW"/>
+              </y:StyleProperties>
+            </y:GenericEdge>
+          </data>
+        </edge>
+        <edge id="n0::e8" source="n0::n3" target="n0::n0">
+          <data key="d10">
+            <y:GenericEdge configuration="com.yworks.bpmn.Connection">
+              <y:Path sx="-4.33984375" sy="21.79279279279279" tx="0.0" ty="0.0">
+                <y:Point x="192.5" y="610.7927927927927"/>
+                <y:Point x="192.5" y="296.25"/>
+              </y:Path>
+              <y:LineStyle color="#000000" type="line" width="1.0"/>
+              <y:Arrows source="none" target="standard"/>
+              <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Consolas" fontSize="12" fontStyle="plain" hasLineColor="false" height="16.0" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="69.9765625" x="-299.6392211914063" xml:space="preserve" y="-9.999992851738625">CAST_ENDED<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+              <y:StyleProperties>
+                <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="CONNECTION_TYPE_MESSAGE_FLOW"/>
+              </y:StyleProperties>
+            </y:GenericEdge>
+          </data>
+        </edge>
+        <edge id="n0::e9" source="n0::n3" target="n0::n2">
+          <data key="d10">
+            <y:GenericEdge configuration="com.yworks.bpmn.Connection">
+              <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+                <y:Point x="975.5" y="589.0"/>
+              </y:Path>
+              <y:LineStyle color="#000000" type="line" width="1.0"/>
+              <y:Arrows source="none" target="standard"/>
+              <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Consolas" fontSize="12" fontStyle="plain" hasLineColor="false" height="16.0" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="294.296875" x="57.5396728515625" xml:space="preserve" y="-70.0">TIME_TICK_100MS[spell_timer &gt; SPELL_TIMEOUT]<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+              <y:StyleProperties>
+                <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="CONNECTION_TYPE_MESSAGE_FLOW"/>
+              </y:StyleProperties>
+            </y:GenericEdge>
+          </data>
+        </edge>
+        <edge id="n0::e10" source="n0::n3" target="n0::n0">
+          <data key="d10">
+            <y:GenericEdge configuration="com.yworks.bpmn.Connection">
+              <y:Path sx="0.0" sy="0.0" tx="0.0" ty="36.75">
+                <y:Point x="221.5" y="589.0"/>
+                <y:Point x="221.5" y="333.0"/>
+              </y:Path>
+              <y:LineStyle color="#000000" type="line" width="1.0"/>
+              <y:Arrows source="none" target="standard"/>
+              <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Consolas" fontSize="12" fontStyle="plain" hasLineColor="false" height="16.0" horizontalTextPosition="center" iconTextGap="4" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="30.390625" x="-154.510498046875" xml:space="preserve" y="-8.0">STOP<y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+              <y:StyleProperties>
+                <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="CONNECTION_TYPE_MESSAGE_FLOW"/>
+              </y:StyleProperties>
+            </y:GenericEdge>
+          </data>
+        </edge>
+      </graph>
+    </node>
+  </graph>
+  <data key="d7">
+    <y:Resources/>
+  </data>
+</graphml>
