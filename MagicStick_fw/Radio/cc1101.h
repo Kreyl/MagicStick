@@ -45,11 +45,11 @@ private:
     uint8_t Reset()       { return WriteStrobe(CC_SRES); }
     uint8_t EnterTX()     { return WriteStrobe(CC_STX);  }
     uint8_t EnterRX()     { return WriteStrobe(CC_SRX);  }
-    uint8_t EnterIdle()    { return WriteStrobe(CC_SIDLE); }
     uint8_t EnterPwrDown() { return WriteStrobe(CC_SPWD);  }
     uint8_t FlushRxFIFO() { return WriteStrobe(CC_SFRX); }
 public:
     uint8_t Init();
+    uint8_t EnterIdle()    { return WriteStrobe(CC_SIDLE); }
     void SetChannel(uint8_t AChannel);
     void SetTxPower(uint8_t APwr)  { WriteRegister(CC_PATABLE, APwr); }
     void SetPktSize(uint8_t ASize) { WriteRegister(CC_PKTLEN, ASize); }

@@ -13,28 +13,33 @@
 //#include "main.h"
 #include "SimpleSensors.h"
 #include "buttons.h"
+#include "ee_i2c.h"
 
 #if 1 // ======================== Variables and defines ========================
 // Forever
 EvtMsgQ_t<EvtMsg_t, MAIN_EVT_Q_LEN> EvtQMain;
-static const UartParams_t CmdUartParams(115200, CMD_UART_PARAMS);
+static const UartParams_t CmdUartParams(256000, CMD_UART_PARAMS);
 CmdUart_t Uart{&CmdUartParams};
 static void ITask();
 static void OnCmd(Shell_t *PShell);
 
-//static void ReadAndSetupMode();
+int32_t ID;
 
-// EEAddresses
-//#define EE_ADDR_DEVICE_ID       0
+// EE
+#define EE_ADDR_DEVICE_ID       0
+const EE_t ee{&i2c1, EE_PWR_PIN};
 
-//static uint8_t ISetID(int32_t NewID);
-//void ReadIDfromEE();
+#define ID_MIN      0
+#define ID_MAX      252
+#define ID_DEFAULT  ID_MIN
+static uint8_t ISetID(int32_t NewID);
+void ReadIDfromEE();
 
 // ==== Periphery ====
 Vibro_t Vibro {VIBRO_CTRL};
 LedRGB_t Led { LED_R_PIN, LED_G_PIN, LED_B_PIN };
-LedSmooth_t Lumos { LUMOS_CTRL, 1800 };
-PinOutput_t EePwr {EE_PWR_PIN};
+LedSmooth_t Lumos { LUMOS_CTRL, 999 };
+//PinOutput_t EePwr {EE_PWR_PIN};
 
 // ==== Timers ====
 //static TmrKL_t TmrEverySecond {MS2ST(1000), evtIdEverySecond, tktPeriodic};
@@ -59,15 +64,18 @@ int main(void) {
 
     Acg.Init();
 
-//    i2c1.Init();
-//    EePwr.Init();
-//    EePwr.SetHi();
+    chThdSleepMilliseconds(7);
+    i2c1.Init();
+    ee.Init();
+    ReadIDfromEE();
+    Printf("ID: %d\r", ID);
+//    EE.Resume();
 //    i2c1.ScanBus();
 
     Led.Init();
     Lumos.Init();
 //    Lumos.StartOrRestart(lsqLStart);
-    Led.StartOrRestart(lsqStart);
+//    Led.StartOrRestart(lsqStart);
 
     Vibro.Init();
 //    Vibro.StartOrRestart(vsqBrrBrr);
@@ -134,40 +142,36 @@ void OnCmd(Shell_t *PShell) {
         Lumos.SetBrightness(Brt);
     }
 
-//    else if(PCmd->NameIs("GetID")) PShell->Reply("ID", ID);
+    else if(PCmd->NameIs("GetID")) PShell->Reply("ID", ID);
 
-//    else if(PCmd->NameIs("SetID")) {
-//        if(PCmd->GetNext<int32_t>(&ID) != retvOk) { PShell->Ack(retvCmdError); return; }
-//        uint8_t r = ISetID(ID);
+    else if(PCmd->NameIs("SetID")) {
+        if(PCmd->GetNext<int32_t>(&ID) != retvOk) { PShell->Ack(retvCmdError); return; }
+        uint8_t r = ISetID(ID);
 //        RMsg_t msg;
 //        msg.Cmd = R_MSG_SET_CHNL;
 //        msg.Value = ID2RCHNL(ID);
 //        Radio.RMsgQ.SendNowOrExit(msg);
-//        PShell->Ack(r);
-//    }
-
-//    else if(PCmd->NameIs("Pill")) {
-//        if(PCmd->GetNextInt32(&dw32) != OK) { PShell->Ack(CMD_ERROR); return; }
-//        PillType = (PillType_t)dw32;
-//        App.SignalEvt(EVT_PILL_CHECK);
-//    }
+        PShell->Ack(r);
+    }
 
     else PShell->Ack(retvCmdUnknown);
 }
 #endif
 
-#if 0 // =========================== ID management =============================
+#if 1 // =========================== ID management =============================
 void ReadIDfromEE() {
-    ID = EE::Read32(EE_ADDR_DEVICE_ID);  // Read device ID
-    if(ID < ID_MIN or ID > ID_MAX) {
-        Printf("\rUsing default ID\r");
-        ID = ID_DEFAULT;
+    if(ee.Read(EE_ADDR_DEVICE_ID, &ID, sizeof(ID)) == retvOk) {
+        if(ID < ID_MIN or ID > ID_MAX) {
+            Printf("\rUsing default ID\r");
+            ID = ID_DEFAULT;
+        }
     }
+    else Printf("EE read error\r");
 }
 
 uint8_t ISetID(int32_t NewID) {
     if(NewID < ID_MIN or NewID > ID_MAX) return retvFail;
-    uint8_t rslt = EE::Write32(EE_ADDR_DEVICE_ID, NewID);
+    uint8_t rslt = ee.Write(EE_ADDR_DEVICE_ID, &NewID, sizeof(ID));
     if(rslt == retvOk) {
         ID = NewID;
         Printf("New ID: %u\r", ID);

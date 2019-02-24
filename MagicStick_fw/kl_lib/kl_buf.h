@@ -94,7 +94,7 @@ public:
     }
 
     // Put anyway
-    void PutI(T Value) {
+    void PutI(T &Value) {
         *PWrite = Value;
         PWrite++;
         if(PWrite > (IBuf + Sz - 1)) PWrite = IBuf;   // Circulate buffer

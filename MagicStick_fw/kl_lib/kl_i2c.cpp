@@ -7,8 +7,8 @@
                         STM32_DMA_CR_MSIZE_BYTE | \
                         STM32_DMA_CR_PSIZE_BYTE | \
                         STM32_DMA_CR_MINC |     /* Memory pointer increase */ \
-                        STM32_DMA_CR_DIR_M2P |  /* Direction is memory to peripheral */ \
-                        STM32_DMA_CR_TCIE
+                        STM32_DMA_CR_DIR_M2P    /* Direction is memory to peripheral */ \
+                        /* | STM32_DMA_CR_TCIE*/
 
 #define I2C_DMARX_MODE(Chnl) \
                         STM32_DMA_CR_CHSEL(Chnl) |   \
@@ -16,8 +16,8 @@
                         STM32_DMA_CR_MSIZE_BYTE | \
                         STM32_DMA_CR_PSIZE_BYTE | \
                         STM32_DMA_CR_MINC |         /* Memory pointer increase */ \
-                        STM32_DMA_CR_DIR_P2M |      /* Direction is peripheral to memory */ \
-                        STM32_DMA_CR_TCIE
+                        STM32_DMA_CR_DIR_P2M        /* Direction is peripheral to memory */ \
+                        /* | STM32_DMA_CR_TCIE*/
 
 #if defined STM32L1XX || defined STM32F2XX
 #if defined STM32F2XX
@@ -493,14 +493,8 @@ void i2c_t::Init() {
 #if I2C_USE_SEMAPHORE
     chBSemObjectInit(&BSemaphore, NOT_TAKEN);
 #endif
-    // Clock
-#if defined STM32L4XX
-    if(PParams->ClkSrc == i2cclkHSI) Clk.EnableHSI();    // HSI used as independent clock
-    Clk.SetI2CClkSrc(PParams->pi2c, PParams->ClkSrc);
-#endif
     // I2C
     I2C_TypeDef *pi2c = PParams->pi2c;  // To make things shorter
-    pi2c->CR1 = 0;  // Clear PE bit => disable and reset i2c
     if(pi2c == I2C1) {
         rccResetI2C1();
         rccEnableI2C1(FALSE);
@@ -515,6 +509,7 @@ void i2c_t::Init() {
         rccEnableI2C3(FALSE);
     }
 #endif
+    pi2c->CR1 = 0;  // Clear PE bit => disable and reset i2c
     // ==== Setup timings ====
     // Get input clock
     uint32_t ClkHz;
@@ -690,11 +685,11 @@ uint8_t i2c_t::WriteRead(uint32_t Addr, uint8_t *WPtr, uint32_t WLength, uint8_t
 
     pi2c->CR2 = (Addr << 1) | (WLength << 16);
     dmaStreamEnable(PDmaTx);   // Enable TX DMA
+    chSysLock();
     // Enable IRQs: TX completed, error, NAck
     pi2c->CR1 |= (I2C_CR1_TCIE | I2C_CR1_ERRIE | I2C_CR1_NACKIE);
     pi2c->CR2 |= I2C_CR2_START;         // Start transmission
     // Wait completion
-    chSysLock();
     r = chThdSuspendTimeoutS(&PThd, TIME_MS2I(I2C_TIMEOUT_MS));
     chSysUnlock();
     // Disable IRQs
@@ -801,7 +796,6 @@ uint8_t i2c_t::IBusyWait() {
 
 
 void i2c_t::IServeIRQ(uint32_t isr) {
-//    PrintfI("isr: %X\r", isr);
     I2C_TypeDef *pi2c = PParams->pi2c;  // To make things shorter
 #if 1 // ==== NACK ====
     if((isr & I2C_ISR_NACKF) != 0) {

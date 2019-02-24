@@ -56,8 +56,16 @@ static inline void Lvl250ToLvl1000(uint16_t *PLvl) {
 #endif
 
 #if 1 // =========================== Pkt_t =====================================
-struct rPkt_t  {
-    uint8_t b[12];
+union rPkt_t  {
+    struct {
+        uint16_t Time;
+        uint8_t Btn;
+        int16_t gyro[3], acc[3];
+    };
+    struct {
+        uint8_t R, G, B, W;
+        uint8_t VibroPwr;
+    };
 } __packed;
 
 #define RPKT_LEN    sizeof(rPkt_t)
@@ -167,11 +175,11 @@ public:
 //    EvtMsgQ_t<RMsg_t, R_MSGQ_LEN> RMsgQ;
     rPkt_t PktRx, PktTx;
     int8_t Rssi;
+    CircBuf_t<rPkt_t, 9> TxBuf;
 //    RxTable_t RxTable;
     uint8_t Init();
-    void SendData(int16_t g0, int16_t g1, int16_t g2, int16_t a0, int16_t a1, int16_t a2);
-
     // Inner use
+    void ITask();
     void TryToSleep(uint32_t SleepDuration);
     void TryToReceive(uint32_t RxDuration);
 };

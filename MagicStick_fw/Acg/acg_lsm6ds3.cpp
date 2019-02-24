@@ -56,8 +56,23 @@ void Acg_t::Task() {
         chThdSuspendS(&ThdRef); // Wait IRQ
         chSysUnlock();
 
+        rPkt_t IPkt;
+        IPkt.Time = chVTGetSystemTimeX() / 10;
+        IPkt.Btn = PinIsHi(GPIOA, 0);
+
+        IPkt.acc[0] = AccSpd.a[0];
+        IPkt.acc[1] = AccSpd.a[1];
+        IPkt.acc[2] = AccSpd.a[2];
+
+        IPkt.gyro[0] = AccSpd.g[0];
+        IPkt.gyro[1] = AccSpd.g[1];
+        IPkt.gyro[2] = AccSpd.g[2];
+
+        chSysLock();
+        Radio.TxBuf.PutI(IPkt);
+        chSysUnlock();
+
 //        AccSpd.Print();
-//        Radio.SendData(AccSpd.g[0], AccSpd.g[1], AccSpd.g[2], AccSpd.a[0], AccSpd.a[1], AccSpd.a[2]);
 
         // Detect motion
 //        SaberMotn.Update(AccSpd.a, AccSpd.g);

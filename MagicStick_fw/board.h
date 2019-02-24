@@ -82,7 +82,7 @@
 // I2C Alternate Function
 #define I2C_AF          AF4
 
-#define EE_PWR_PIN      GPIOB, 10, omPushPull
+#define EE_PWR_PIN      GPIOB, 10
 
 #endif // GPIO
 

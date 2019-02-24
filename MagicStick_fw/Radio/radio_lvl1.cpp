@@ -8,12 +8,11 @@
 #include "radio_lvl1.h"
 #include "cc1101.h"
 #include "uart.h"
-//#include "main.h"
-
 #include "led.h"
-#include "Sequences.h"
+#include "vibro.h"
 
 cc1101_t CC(CC_Setup0);
+extern int32_t ID;
 
 //#define DBG_PINS
 
@@ -34,45 +33,38 @@ cc1101_t CC(CC_Setup0);
 rLevel1_t Radio;
 rPkt_t Pkt;
 extern LedRGB_t Led;
+extern LedSmooth_t Lumos;
+extern Vibro_t Vibro;
 
 #if 1 // ================================ Task =================================
 static THD_WORKING_AREA(warLvl1Thread, 256);
 __noreturn
 static void rLvl1Thread(void *arg) {
     chRegSetThreadName("rLvl1");
-    while(true) {
-        // Process queue
-//        RMsg_t msg = Radio.RMsgQ.Fetch(TIME_IMMEDIATE);
-//        if(msg.Cmd == R_MSG_SET_PWR) CC.SetTxPower(msg.Value);
-//        if(msg.Cmd == R_MSG_SET_CHNL) CC.SetChannel(msg.Value);
-        // Process task
-        int8_t Rssi;
-        CC.Recalibrate();
-        uint8_t RxRslt = CC.Receive(360, &Pkt, RPKT_LEN, &Rssi);
-        if(RxRslt == retvOk) {
-            Printf("\rRssi=%d", Rssi);
-            Led.StartOrRestart(lsqRx);
-        }
-        else Printf("t");
-    } // while true
+    Radio.ITask();
 }
 #endif // task
 
-//void rLevel1_t::SendData(int16_t g0, int16_t g1, int16_t g2, int16_t a0, int16_t a1, int16_t a2) {
-//    rPkt_t Pkt;
-//    Pkt.gyro[0] = g0;
-//    Pkt.gyro[1] = g1;
-//    Pkt.gyro[2] = g2;
-//    Pkt.acc[0] = a0;
-//    Pkt.acc[1] = a1;
-//    Pkt.acc[2] = a2;
-//    Pkt.Btn = PinIsHi(GPIOA, 0);
-//    Pkt.Time = chVTGetSystemTimeX();
-//    CC.Recalibrate();
-//    CC.Transmit(&Pkt, RPKT_LEN);
-////    Led.StartOrRestart(lsqBlink);
-////    Printf("t");
-//}
+__noreturn
+void rLevel1_t::ITask() {
+    while(true) {
+        CC.Recalibrate();
+        uint8_t RxRslt = CC.Receive(7, &Pkt, RPKT_LEN, &Rssi);
+        if(RxRslt == retvOk) {
+//            Printf("\rRssi=%d", Rssi);
+            // Process received
+            Led.SetColor(Color_t(Pkt.R, Pkt.G, Pkt.B));
+            Lumos.SetBrightness(Pkt.W);
+            Vibro.Set(Pkt.VibroPwr);
+
+            // Send all data in queue
+            while(TxBuf.Get(&Pkt) == retvOk) {
+                chThdSleepMilliseconds(2); // Let receiver think. Waste some ms here.
+                CC.Transmit(&Pkt, RPKT_LEN);
+            } // while
+        } // if rcvd
+    } // while true
+}
 
 void rLevel1_t::TryToSleep(uint32_t SleepDuration) {
     if(SleepDuration >= MIN_SLEEP_DURATION_MS) CC.PowerOff();
@@ -90,7 +82,7 @@ uint8_t rLevel1_t::Init() {
     if(CC.Init() == retvOk) {
         CC.SetTxPower(CC_Pwr0dBm);
         CC.SetPktSize(RPKT_LEN);
-        CC.SetChannel(0);
+        CC.SetChannel(ID);
         chThdCreateStatic(warLvl1Thread, sizeof(warLvl1Thread), HIGHPRIO, (tfunc_t)rLvl1Thread, NULL);
         return retvOk;
     }
