@@ -18,10 +18,11 @@ static void OnCmd(Shell_t *PShell);
 // ==== Periphery ====
 LedSmooth_t Lumos { LUMOS_CTRL, 999 };
 
-bool IsOn = false;
+bool IsOn = true;
+void EnterSleep();
 
 // ==== Timers ====
-//static TmrKL_t TmrEverySecond {MS2ST(1000), evtIdEverySecond, tktPeriodic};
+static TmrKL_t TmrEverySecond {MS2ST(1000), evtIdEverySecond, tktPeriodic};
 #endif
 
 int main(void) {
@@ -42,10 +43,10 @@ int main(void) {
 
     SimpleSensors::Init();
     Lumos.Init();
-    Lumos.StartOrRestart(lsqStart);
+    Lumos.StartOrRestart(lsqFadeIn);
 
     // ==== Time and timers ====
-//    TmrEverySecond.StartOrRestart();
+    TmrEverySecond.StartOrRestart();
 
     // Main cycle
     ITask();
@@ -57,6 +58,7 @@ void ITask() {
         EvtMsg_t Msg = EvtQMain.Fetch(TIME_INFINITE);
         switch(Msg.ID) {
             case evtIdEverySecond:
+                if(Lumos.IsIdle() and !IsOn) EnterSleep();
                 break;
 
             case evtIdButtons:
@@ -74,6 +76,18 @@ void ITask() {
         } // Switch
     } // while true
 } // ITask()
+
+void EnterSleep() {
+    // Wait button release
+    while(PinIsHi(GPIOA, 0)) { chThdSleepMilliseconds(4); }
+    // Enter sleep
+    chSysLock();
+    Sleep::EnableWakeup1Pin();
+    Sleep::ClearStandbyFlag();
+    Sleep::EnterStandby();
+    chSysUnlock();
+}
+
 
 #if UART_RX_ENABLED // ================= Command processing ====================
 void OnCmd(Shell_t *PShell) {
