@@ -18,8 +18,10 @@ static void OnCmd(Shell_t *PShell);
 // ==== Periphery ====
 LedSmooth_t Lumos { LUMOS_CTRL, 999 };
 
+bool IsOn = false;
+
 // ==== Timers ====
-static TmrKL_t TmrEverySecond {MS2ST(1000), evtIdEverySecond, tktPeriodic};
+//static TmrKL_t TmrEverySecond {MS2ST(1000), evtIdEverySecond, tktPeriodic};
 #endif
 
 int main(void) {
@@ -39,6 +41,8 @@ int main(void) {
     Clk.PrintFreqs();
 
     SimpleSensors::Init();
+    Lumos.Init();
+    Lumos.StartOrRestart(lsqStart);
 
     // ==== Time and timers ====
 //    TmrEverySecond.StartOrRestart();
@@ -56,7 +60,10 @@ void ITask() {
                 break;
 
             case evtIdButtons:
-                Printf("Btn\r");
+//                Printf("Btn\r");
+                IsOn = !IsOn;
+                if(IsOn) Lumos.StartOrContinue(lsqFadeIn);
+                else Lumos.StartOrContinue(lsqFadeOut);
                 break;
 
             case evtIdShellCmd:
