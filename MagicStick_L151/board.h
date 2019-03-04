@@ -30,9 +30,9 @@
 
 // Light
 #define LUMOS_CTRL      { GPIOA, 6, TIM3, 1, invNotInverted, omPushPull, 255 }
-#define LED_B_PIN       { GPIOA, 8, TIM1, 1, invNotInverted, omPushPull, 255 }
-#define LED_R_PIN       { GPIOA, 9, TIM1, 2, invNotInverted, omPushPull, 255 }
-#define LED_G_PIN       { GPIOA, 10, TIM1, 3, invNotInverted, omPushPull, 255 }
+#define LED_B_PIN       GPIOA, 8, omPushPull
+#define LED_R_PIN       GPIOA, 9, omPushPull
+#define LED_G_PIN       GPIOA, 10, omPushPull
 
 // Button
 #define BTN_PIN         GPIOA, 0, pudPullDown

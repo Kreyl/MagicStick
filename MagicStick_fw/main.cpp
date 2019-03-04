@@ -50,6 +50,7 @@ LedSmooth_t Lumos { LUMOS_CTRL, 999 };
 int main(void) {
     // ==== Init Vcore & clock system ====
     Clk.SetCoreClk(cclk16MHz);
+//    Clk.SetCoreClk(cclk48MHz);
     Clk.UpdateFreqValues();
 
     // === Init OS ===

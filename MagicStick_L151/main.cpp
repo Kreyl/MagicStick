@@ -16,13 +16,14 @@ static void ITask();
 static void OnCmd(Shell_t *PShell);
 
 // ==== Periphery ====
-LedSmooth_t Lumos { LUMOS_CTRL, 999 };
+//LedSmooth_t Lumos { LUMOS_CTRL, 999 };
+LedOnOff_t TheGreen {LED_G_PIN};
 
 bool IsOn = true;
 void EnterSleep();
 
 // ==== Timers ====
-static TmrKL_t TmrEverySecond {MS2ST(1000), evtIdEverySecond, tktPeriodic};
+//static TmrKL_t TmrEverySecond {MS2ST(1000), evtIdEverySecond, tktPeriodic};
 #endif
 
 int main(void) {
@@ -42,11 +43,16 @@ int main(void) {
     Clk.PrintFreqs();
 
     SimpleSensors::Init();
-    Lumos.Init();
-    Lumos.StartOrRestart(lsqFadeIn);
+//    Lumos.Init();
+//    Lumos.StartOrRestart(lsqFadeIn);
+    TheGreen.Init();
+    TheGreen.On();
+    chThdSleepMilliseconds(45);
+    TheGreen.Off();
+    EnterSleep();
 
     // ==== Time and timers ====
-    TmrEverySecond.StartOrRestart();
+//    TmrEverySecond.StartOrRestart();
 
     // Main cycle
     ITask();
@@ -58,14 +64,14 @@ void ITask() {
         EvtMsg_t Msg = EvtQMain.Fetch(TIME_INFINITE);
         switch(Msg.ID) {
             case evtIdEverySecond:
-                if(Lumos.IsIdle() and !IsOn) EnterSleep();
+//                if(Lumos.IsIdle() and !IsOn) EnterSleep();
                 break;
 
             case evtIdButtons:
 //                Printf("Btn\r");
                 IsOn = !IsOn;
-                if(IsOn) Lumos.StartOrContinue(lsqFadeIn);
-                else Lumos.StartOrContinue(lsqFadeOut);
+//                if(IsOn) Lumos.StartOrContinue(lsqFadeIn);
+//                else Lumos.StartOrContinue(lsqFadeOut);
                 break;
 
             case evtIdShellCmd:

@@ -31,23 +31,7 @@ uint8_t cc1101_t::Init() {
     CsHi();
     // ==== SPI ====
     // MSB first, master, ClkLowIdle, FirstEdge, Baudrate no more than 6.5MHz
-    uint32_t div;
-#if defined STM32L1XX || defined STM32F4XX || defined STM32L4XX
-    if(ISpi.PSpi == SPI1) div = Clk.APB2FreqHz / CC_MAX_BAUDRATE_HZ;
-    else div = Clk.APB1FreqHz / CC_MAX_BAUDRATE_HZ;
-#elif defined STM32F030 || defined STM32F0
-    div = Clk.APBFreqHz / CC_MAX_BAUDRATE_HZ;
-#endif
-    SpiClkDivider_t ClkDiv = sclkDiv2;
-    if     (div > 128) ClkDiv = sclkDiv256;
-    else if(div > 64) ClkDiv = sclkDiv128;
-    else if(div > 32) ClkDiv = sclkDiv64;
-    else if(div > 16) ClkDiv = sclkDiv32;
-    else if(div > 8)  ClkDiv = sclkDiv16;
-    else if(div > 4)  ClkDiv = sclkDiv8;
-    else if(div > 2)  ClkDiv = sclkDiv4;
-
-    ISpi.Setup(boMSB, cpolIdleLow, cphaFirstEdge, ClkDiv);
+    ISpi.Setup(boMSB, cpolIdleLow, cphaFirstEdge, CC_MAX_BAUDRATE_HZ);
     ISpi.Enable();
     // ==== Init CC ====
     if(Reset() != retvOk) {
@@ -146,9 +130,9 @@ void cc1101_t::Transmit(void *Ptr, uint8_t Len) {
 //     WaitUntilChannelIsBusy();   // If this is not done, time after time FIFO is destroyed
 //    while(IState != CC_STB_IDLE) EnterIdle();
     EnterTX();  // Start transmission of preamble while writing FIFO
+    chSysLock();
     WriteTX((uint8_t*)Ptr, Len);
     // Enter TX and wait IRQ
-    chSysLock();
     chThdSuspendS(&ThdRef); // Wait IRQ
     chSysUnlock();          // Will be here when IRQ fires
 }

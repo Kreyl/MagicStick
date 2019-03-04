@@ -9,6 +9,7 @@
 #include "MsgQ.h"
 #include "shell.h"
 #include "acg_lsm6ds3_defins.h"
+#include "board.h"
 
 #include "radio_lvl1.h"
 
@@ -93,25 +94,7 @@ void Acg_t::Init() {
     chThdSleepMilliseconds(18);
 #endif
 #if 1 // ==== SPI ====    MSB first, master, ClkIdleHigh, FirstEdge
-    uint32_t div = 2;
-#if defined STM32L1XX || defined STM32F4XX || defined STM32L4XX
-    if(ACG_SPI == SPI1) div = Clk.APB2FreqHz / ACG_MAX_BAUDRATE_HZ;
-    else div = Clk.APB1FreqHz / ACG_MAX_BAUDRATE_HZ;
-#elif defined STM32F030 || defined STM32F0
-    div = Clk.APBFreqHz / PN_MAX_BAUDRATE_HZ;
-#else
-#error "MCU not specified"
-#endif
-    SpiClkDivider_t ClkDiv = sclkDiv2;
-    if     (div > 128) ClkDiv = sclkDiv256;
-    else if(div > 64) ClkDiv = sclkDiv128;
-    else if(div > 32) ClkDiv = sclkDiv64;
-    else if(div > 16) ClkDiv = sclkDiv32;
-    else if(div > 8)  ClkDiv = sclkDiv16;
-    else if(div > 4)  ClkDiv = sclkDiv8;
-    else if(div > 2)  ClkDiv = sclkDiv4;
-
-    ISpi.Setup(boMSB, cpolIdleHigh, cphaSecondEdge, ClkDiv);
+    ISpi.Setup(boMSB, cpolIdleHigh, cphaSecondEdge, ACG_MAX_BAUDRATE_HZ);
     ISpi.EnableRxDma();
     ISpi.EnableTxDma();
     ISpi.Enable();
