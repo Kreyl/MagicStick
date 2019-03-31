@@ -14,6 +14,7 @@
 #include "SimpleSensors.h"
 #include "buttons.h"
 #include "ee_i2c.h"
+#include "ir_tx.h"
 
 #if 1 // ======================== Variables and defines ========================
 // Forever
@@ -64,6 +65,7 @@ int main(void) {
     Clk.PrintFreqs();
 
     Acg.Init();
+    IrTRx_Init();
 
     chThdSleepMilliseconds(7);
     i2c1.Init();
@@ -90,7 +92,7 @@ int main(void) {
 
     // ==== Radio ====
 //    if(
-    Radio.Init();
+//    Radio.Init();
     //== retvOk) Led.StartOrRestart(lsqStart);
 //    else Led.StartOrRestart(lsqFailure);
 //    chThdSleepMilliseconds(1008);

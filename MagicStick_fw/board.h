@@ -86,6 +86,10 @@
 
 #endif // GPIO
 
+#if 1 // ============================== Timer ==================================
+#define IR_SAMPLING_TMR TIM7
+#endif
+
 #if 1 // =========================== I2C =======================================
 // i2cclkPCLK1, i2cclkSYSCLK, i2cclkHSI
 #define I2C_CLK_SRC     i2cclkHSI
@@ -123,6 +127,9 @@
 #define I2C1_DMA_TX     STM32_DMA_STREAM_ID(1, 6)
 #define I2C1_DMA_RX     STM32_DMA_STREAM_ID(1, 7)
 #define I2C1_DMA_CHNL   3
+
+#define DAC_DMA         STM32_DMA_STREAM_ID(2, 4)
+#define DAC_DMA_CHNL    3
 
 #if ADC_REQUIRED
 #define ADC_DMA         STM32_DMA1_STREAM1

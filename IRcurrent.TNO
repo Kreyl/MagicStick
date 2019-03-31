@@ -140,8 +140,8 @@ XTI                3.000
 DC Operating Point Voltages
 ===========================
 Node         Voltage  Node         Voltage  Node         Voltage 
-VDAC          3.300   VB            1.183   3           332.172m 
-VCC           4.000   5             2.966  
+VDAC          2.800   VB            2.561   3             1.822  
+VCC           4.000   5             3.177  
 
 
 Operating Point for Devices of Type Diode
@@ -150,23 +150,23 @@ Instance:                 D1
 Using model:          1N4148
 
 Capacitance Terms:
-CAP                  58.627n
+CAP                   9.763n
 
 Current Terms:
-ID                  330.055m
+ID                   54.959m
 
 Resistance Terms:
-REQ                 152.713m
+REQ                 917.119m
 
 Voltage Terms:
-VD                    1.034 
+VD                  823.044m
 
 Power DC Terms:
-PD                  341.384m
+PD                   45.233m
 PS                    0.000 
 
 DC Pin Currents:
-Id                  330.055m
+Id                   54.959m
 
 Condition:
 State                     ON
@@ -183,47 +183,47 @@ Instance:                 Q1
 Using model:       MMBT2222A
 
 Beta Terms:
-BETADC              155.904 
-BETAAC              111.410 
+BETADC              229.785 
+BETAAC              208.944 
 
 Capacitance Terms:
-CPI                   9.477n
-CMU                   3.535p
-CBX                   2.411p
+CPI                 714.782p
+CMU                   4.591p
+CBX                   3.130p
 CJS                   0.000 
 
 Conductance Terms:
-GM                    9.180 
+GM                    1.943 
 
 Current Terms:
-IB                    2.117m
-IC                  330.055m
+IB                  239.174u
+IC                   54.959m
 
 Resistance Terms:
-RPI                  12.136 
+RPI                 107.514 
 RX                    1.000 
-RO                  248.664 
+RO                    1.474K
 
 Voltage Terms:
-VBE                 850.790m
-VBC                  -1.783 
-VCE                   2.634 
+VBE                 739.300m
+VBC                -616.130m
+VCE                   1.355 
 
 Frequency Terms:
-FT                154.069MEG
+FT                428.100MEG
 
 Power DC Terms:
-PD                  871.001m
+PD                   74.669m
 PS                    0.000 
 
 DC Pin Currents:
-Ib                    2.117m
-Ic                  330.055m
-Ie                 -332.172m
+Ib                  239.174u
+Ic                   54.959m
+Ie                  -55.198m
 Is                    0.000 
 
 Condition:
-State                    HOT
+State                    LIN
 
 Device Variables:
 area                  1.000 
@@ -235,12 +235,12 @@ vce                   0.000
 Operating Point for Devices of Type Resistor
 ============================================
 Instance:                  R1              R3
-V                      2.117         332.172m
+V                    239.174m          1.822 
 Power DC Terms:
-PD                     4.482m        110.338m
+PD                    57.204u        100.544m
 
 DC Pin Currents:
-Ir                     2.117m        332.172m
+Ir                   239.174u         55.198m
 
 Device Variables:
 tc1                    0.000           0.000 
@@ -251,11 +251,11 @@ tc2                    0.000           0.000
 Operating Point for Devices of Type SPICE Source
 ================================================
 Instance:                 V1              V2
-V                     4.000           3.300 
+V                     4.000           2.800 
 Power DC Terms:
-PG                    1.320           6.986m
+PG                  219.834m        669.687u
 
 DC Pin Currents:
-ISource            -330.055m         -2.117m
+ISource             -54.959m       -239.174u
 
 
