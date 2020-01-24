@@ -65,7 +65,7 @@ int main(void) {
     Clk.PrintFreqs();
 
     Acg.Init();
-    IrTRx_Init();
+//    IrTRx_Init();
 
     chThdSleepMilliseconds(7);
     i2c1.Init();
@@ -91,11 +91,9 @@ int main(void) {
 //    TmrRxTableCheck.StartOrRestart();
 
     // ==== Radio ====
-//    if(
-//    Radio.Init();
-    //== retvOk) Led.StartOrRestart(lsqStart);
-//    else Led.StartOrRestart(lsqFailure);
-//    chThdSleepMilliseconds(1008);
+    if(Radio.Init() == retvOk) Led.StartOrRestart(lsqStart);
+    else Led.StartOrRestart(lsqFailure);
+    chThdSleepMilliseconds(1008);
 
     // Main cycle
     ITask();
@@ -112,7 +110,7 @@ void ITask() {
 //                break;
 
             case evtIdButtons:
-                Printf("Btn %u\r", Msg.BtnEvtInfo.Type);
+//                Printf("Btn %u\r", Msg.BtnEvtInfo.Type);
                 break;
 
             case evtIdShellCmd:

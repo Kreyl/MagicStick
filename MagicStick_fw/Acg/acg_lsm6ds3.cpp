@@ -111,7 +111,7 @@ void Acg_t::Init() {
     }
 
     // FIFO
-    IWriteReg(0x06, 6); // FIFO CTRL1: FIFO thr
+    IWriteReg(0x06, 6); // FIFO CTRL1: FIFO thr=6*2=12 (2 bytes per axis * 6 axis)
     IWriteReg(0x07, 0x00); // FIFO CTRL2: pedo dis, no temp, FIFO thr MSB = 0
     IWriteReg(0x08, (0b001 << 3) | (0b001)); // FIFO CTRL3: gyro and acc no decimation, both in fifo
     IWriteReg(0x09, 0x00); // FIFO CTRL4: no stop on thr, not only MSB, no fourth and third dataset
@@ -122,10 +122,9 @@ void Acg_t::Init() {
 
     // CTRL
 //    b = LSM6DS3_ACC_GYRO_BW_XL_400Hz | LSM6DS3_ACC_GYRO_FS_XL_8g | LSM6DS3_ACC_GYRO_ODR_XL_104Hz;
-    b = LSM6DS3_ACC_GYRO_BW_XL_400Hz | LSM6DS3_ACC_GYRO_FS_XL_8g | LSM6DS3_ACC_GYRO_ODR_XL_52Hz;
+    b = LSM6DS3_ACC_GYRO_BW_XL_400Hz | LSM6DS3_ACC_GYRO_FS_XL_16g | LSM6DS3_ACC_GYRO_ODR_XL_104Hz;
     IWriteReg(0x10, b);
-//    b = LSM6DS3_ACC_GYRO_FS_G_2000dps | LSM6DS3_ACC_GYRO_ODR_G_104Hz;
-    b = LSM6DS3_ACC_GYRO_FS_G_2000dps | LSM6DS3_ACC_GYRO_ODR_XL_52Hz;
+    b = LSM6DS3_ACC_GYRO_FS_G_2000dps | LSM6DS3_ACC_GYRO_ODR_G_104Hz;
     IWriteReg(0x11, b);
     IWriteReg(0x12, 0x44); // CTRL3_c: no reboot, block update, irq act hi & push-pull, spi 4w, reg addr inc, LSB first, no rst
     IWriteReg(0x13, 0x84); // CTRL4_c: DEN, no g sleep, i2c dis, no g LPF
